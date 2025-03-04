@@ -372,7 +372,8 @@ async function sendMessageStream(message, model, disableSearch, forceConcise, is
   };
   const response = await fetchWithTimeout(TARGET_URL, init);
   if (!response.ok) {
-    return new Response(JSON.stringify({ error: "发送消息失败" }), {
+    const errorBody = await response.text();
+    return new Response(JSON.stringify({ error: "发送消息失败", detail: errorBody }), {
       status: 500,
       headers: { "Content-Type": "application/json" },
     });
@@ -549,7 +550,8 @@ async function sendMessageNonStream(message, model, disableSearch, forceConcise,
   };
   const response = await fetchWithTimeout(TARGET_URL, init);
   if (!response.ok) {
-    return new Response(JSON.stringify({ error: "发送消息失败" }), {
+    const errorBody = await response.text();
+    return new Response(JSON.stringify({ error: "发送消息失败",detail: errorBody }), {
       status: 500,
       headers: { "Content-Type": "application/json" },
     });
