@@ -9,7 +9,7 @@ database_name = "a1_db"
 database_id = "PLACEHOLDER_DB_ID"
 
 [vars]
-CONFIG_PASSWORD = "123"
+CONFIG_PASSWORD = "yF8kP1qB6fU8g"
 
 [observability]
 enabled = true
